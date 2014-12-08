@@ -3,6 +3,12 @@ require 'bundler/setup'
 
 require 'sinatra'
 require 'firebase'
+require 'sinatra/activerecord'
+
+class BitcoinRateRequest < ActiveRecord::Base
+end
+
+set :database, {adapter: 'sqlite3', database: 'bitcoin_rates.db'}
 
 get '/rates/bitcoin' do
   base_uri = 'https://publicdata-cryptocurrency.firebaseio.com'
