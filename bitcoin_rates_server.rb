@@ -18,6 +18,6 @@ get '/rates/bitcoin' do
 
   bitcoinRateRequest = BitcoinRateRequest.create(last: response.body['last'], ask: response.body['ask'], bid: response.body['bid'])
 
-  {'rate' => {'last' => response.body['last'], 'ask' => response.body['ask'], 'bid' => response.body['bid']} }.to_json
+  {'rate' => {'last' => bitcoinRateRequest.last, 'ask' => bitcoinRateRequest.ask, 'bid' => bitcoinRateRequest.bid} }.to_json
 end
 
