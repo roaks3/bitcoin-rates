@@ -10,6 +10,6 @@ get '/rates/bitcoin' do
   firebase = Firebase::Client.new(base_uri)
   response = firebase.get('bitcoin')
 
-  response.raw_body
+  {'rate' => {'last' => response.body['last'], 'ask' => response.body['ask'], 'bid' => response.body['bid']} }.to_json
 end
 

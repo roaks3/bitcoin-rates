@@ -24,4 +24,5 @@ PLATFORMS
 
 DEPENDENCIES
   firebase
+  json
   sinatra
