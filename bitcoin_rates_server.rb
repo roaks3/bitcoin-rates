@@ -31,3 +31,10 @@ get '/rates/bitcoin' do
   {'rate' => {'last' => bitcoinRateRequest.last, 'ask' => bitcoinRateRequest.ask, 'bid' => bitcoinRateRequest.bid} }.to_json
 end
 
+get '/requests/bitcoin' do
+  offset = params[:offset]
+  limit = params[:limit]
+  @bitcoinRateRequest = BitcoinRateRequest.all.limit(limit).offset(offset)
+  @bitcoinRateRequest.to_json
+end
+
